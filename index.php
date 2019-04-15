@@ -283,4 +283,3 @@ define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
  */
 
 require_once BASEPATH . 'core/CodeIgniter.php';
-include_once 'cd';
