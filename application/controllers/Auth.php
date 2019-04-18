@@ -2,36 +2,55 @@
 defined('BASEPATH') or exit("direct access not allowed");
 class Auth extends MY_Controller
 {
-	public function index()
+	public function __construct()
 	{
-		$this->load->view('public/auth');
+		parent::__construct();
+		$this->load->model(['UserAuthModel' => 'uam']);
 	}
 
-	public function authenticate()
+	public function index()
 	{
-		if ($this->input->post('submit') === 'login') {
+		$this->session->userLoggedIn ? redirect('dashboard') : $this->load->view('public/auth');
+	}
 
-			$result = $this->um->login($this->input->post('email'), $this->input->post('pass'));
-			if ($result) {
-				$this->session->set_userdata('userLoggedIn', true);
-				redirect('dashboard');
-			} else {
-				$this->session->set_flashdata('error', 'Invalid Email or Password');
-				redirect('auth');
-			}
-		} else if ($this->input->post('submit') === 'signup') {
-
-			$result = $this->um->signup($this->input->post('email'), $this->input->post('pass'));
-			if ($result > 0) {
-				$this->session->set_flashdata('success', 'Registration Successfull Login Now');
-			} else {
-				$this->session->set_flashdata('error', 'Unable to Register Contact Support');
-			}
-			redirect('auth');
-		} else if ($this->input->post('submit') === 'reset') {
-			pr($this->input->post());
-		} else {
+	//login post
+	public function login()
+	{
+		if ($this->input->post('submit') !== 'login') {
 			redirect('auth');
 		}
+		$result = $this->uam->login($this->input->post('email'), $this->input->post('pass'));
+		$result ? redirect('dashboard') : redirect('auth');
+	}
+
+	//signup post
+	public function signup()
+	{
+		if ($this->input->post('submit') !== 'signup') {
+			redirect('auth');
+		}
+		$this->uam->signup($this->input->post('email'), $this->input->post('pass'));
+		redirect('auth');
+	}
+
+	//reset post
+	public function reset()
+	{
+		if ($this->input->post('submit') !== 'reset') {
+			redirect('auth');
+		}
+		$result = $this->uam->reset($this->input->post('email'));
+		if (!$result) {
+			$this->session->set_flashdata('error', 'Unable to Send Reset Email Try again or contact support');
+		} else {
+			//send reset email
+			$this->session->set_flashdata('success', 'Password Reset Email Sent, Do not forget to check spam folder');
+		}
+		redirect('auth');
+	}
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('auth');
 	}
 }

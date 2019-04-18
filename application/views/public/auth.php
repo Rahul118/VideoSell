@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- Bootstrap core CSS -->
-	<?= link_tag(base_url('assets/public/css/united.css')) ?>
+	<?= link_tag(base_url('assets/vendor/bootstrap/css/bootstrap.css')) ?>
 	<!-- Custom styles for this template -->
-	<?= link_tag(base_url('assets/public/css/new-age.css')) ?>
+	<?= link_tag(base_url('assets/public/css/homepage.css')) ?>
 	<title>Login/Signup</title>
 </head>
 
@@ -43,7 +43,7 @@
 					<div class="tab-content" id="nav-tabContent">
 						<div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
 
-							<form id="loginForm" class="form p-3" action="auth/authenticate" method="post">
+							<form id="loginForm" class="form p-3" action="auth/login" method="post">
 								<div class="control-group">
 									<div class="form-group controls">
 										<label for="email">Email</label>
@@ -65,7 +65,7 @@
 									<input type="checkbox" class="custom-control-input" id="remember">
 									<label class="custom-control-label" for="remember">Remember me</label>
 								</div>
-								<button type="submit" value="login" name="submit" id="login-btn" class="btn btn-warning btn-block">Login</button>
+								<button type="submit" value="login" name="submit" id="login-btn" class="btn btn-primary btn-block">Login</button>
 
 							</form>
 
@@ -74,7 +74,7 @@
 						<div class="tab-pane fade" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab">
 
 
-							<form id="registerForm" class="form p-3" action="auth/authenticate" method="post">
+							<form id="registerForm" class="form p-3" action="auth/signup" method="post">
 								<div class="control-group">
 									<div class="form-group controls">
 										<label for="signup-email">Email Address</label>
@@ -108,7 +108,7 @@
 										<p class="help-block"></p>
 									</div>
 								</div>
-								<button type="submit" name="submit" value="signup" id="signup-btn" class="btn btn-info btn-block">Register</button>
+								<button type="submit" name="submit" value="signup" id="signup-btn" class="btn btn-success btn-block">Register</button>
 
 							</form>
 
@@ -117,7 +117,7 @@
 
 						<div class="tab-pane fade" id="nav-reset" role="tabpanel" aria-labelledby="nav-reset-tab">
 
-							<form id="resetForm" class="resetForm p-3" action="auth/authenticate" method="post">
+							<form id="resetForm" class="resetForm p-3" action="auth/reset" method="post">
 								<div class="control-group">
 									<div class="form-group controls">
 										<label for="reset-email">Email Address</label>
@@ -125,7 +125,7 @@
 										<p class="help-block"></p>
 									</div>
 								</div>
-								<button type="submit" name="submit" value="reset" id="login-btn" class="btn btn-primary btn-block">Send Password Reset Link</button>
+								<button type="submit" name="submit" value="reset" id="login-btn" class="btn btn-warning btn-block">Send Password Reset Link</button>
 
 							</form>
 
@@ -144,7 +144,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.js" integrity="sha256-clknYhjtCNZEILGaJmx/iSKaZmfYAH1NzI3PUqLeWUs=" crossorigin="anonymous"></script>
 
 	<!-- Custom scripts for this template -->
-	<script src="<?= base_url('assets/public/js/new-age.js') ?>"></script>
+	<script src="<?= base_url('assets/public/js/homepaage.js') ?>"></script>
 </body>
 
 

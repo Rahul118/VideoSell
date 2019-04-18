@@ -1,28 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
-        aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+	<div class="nav-brand">
+		<a class="navbar-brand" href="<?= base_url('dashboard') ?>">VIDEO SELL</a>
+	</div>
+	<button class="d-block sidebar-toggler text-white" type="button">
+		<i class="fas fa-bars"></i>
+	</button>
+	<div class="collapse show navbar-collapse text-center">
+		<form class="form-inline  my-2 my-sm-0 ml-auto">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search ..." aria-label="Search" aria-describedby="basic-addon2" />
+				<div class="input-group-append">
+					<button class="btn btn-danger" type="button">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
 </nav>
